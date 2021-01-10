@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { IframeParent } from "./components/IframeParent";
+import { IframeChild } from "./components/IframeChild";
+import { WindowParent } from "./components/WindowParent";
+import { WindowChild } from "./components/WindowChild";
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ margin: "0px 20px" }}>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/iframe/" component={IframeParent} />
+          <Route exact path="/iframe-child/" component={IframeChild} />
+          <Route exact path="/window/" component={WindowParent} />
+          <Route exact path="/window-child/" component={WindowChild} />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
-}
-
-export default App;
+};
