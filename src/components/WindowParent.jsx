@@ -5,7 +5,6 @@ export const WindowParent = () => {
   var childWindow;
 
   const sendMessage = () => {
-    console.log(childWindow);
     if (!childWindow) return;
     childWindow.postMessage("Hello son!", "http://localhost:3000");
   };

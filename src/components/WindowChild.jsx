@@ -3,13 +3,11 @@ export const WindowChild = () => {
   const [recievedMessage, setRecievedMessage] = useState("");
 
   const sendMessage = () => {
-    console.log(window);
     window.opener.postMessage("Hi dad!", "http://localhost:3000");
   };
 
   useEffect(() => {
     window.addEventListener("message", function (e) {
-      console.log(e);
       if (e.origin !== "http://localhost:3000") return;
       setRecievedMessage("Got this message from parent: " + e.data);
     });

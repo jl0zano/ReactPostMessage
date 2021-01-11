@@ -1,11 +1,11 @@
 import React, { useRef, useEffect, useState } from "react";
 export const IframeParent = () => {
-  const formRef = useRef(null);
+  const iFrameRef = useRef(null);
   const [recievedMessage, setRecievedMessage] = useState("");
 
   const sendMessage = () => {
-    if (!formRef.current) return;
-    formRef.current.contentWindow.postMessage(
+    if (!iFrameRef.current) return;
+    iFrameRef.current.contentWindow.postMessage(
       "Hello son!",
       "http://localhost:3000"
     );
@@ -33,7 +33,7 @@ export const IframeParent = () => {
       <br />
 
       <iframe
-        ref={formRef}
+        ref={iFrameRef}
         src="/iframe-child/"
         width="600"
         height="300"
