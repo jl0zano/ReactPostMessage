@@ -1,8 +1,8 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 export const WindowParent = () => {
   const [recievedMessage, setRecievedMessage] = useState("");
 
-  var childWindow;
+  let childWindow;
 
   const sendMessage = () => {
     if (!childWindow) return;
