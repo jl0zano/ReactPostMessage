@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 export const IframeParent = () => {
   const iFrameRef = useRef(null);
-  const [recievedMessage, setRecievedMessage] = useState("");
+  const [receivedMessage, setReceivedMessage] = useState("");
 
   const sendMessage = () => {
     if (!iFrameRef.current) return;
@@ -14,7 +14,7 @@ export const IframeParent = () => {
   useEffect(() => {
     window.addEventListener("message", function (e) {
       if (e.origin !== "http://localhost:3000") return;
-      setRecievedMessage("Got this message from child: " + e.data);
+      setReceivedMessage("Got this message from child: " + e.data);
     });
   }, []);
 
@@ -40,7 +40,7 @@ export const IframeParent = () => {
         title="Child iframe"
       ></iframe>
 
-      <p>{recievedMessage}</p>
+      <p>{receivedMessage}</p>
     </div>
   );
 };
